@@ -35,8 +35,9 @@ class UserCreatingSpawner(SystemdSpawner):
             user.remove_user_group(system_username, 'jupyterhub-admins')
         return super().start()
 
-c.Spawner.notebook_dir = '/home/efs'
+#c.Spawner.notebook_dir = '/home/efs'
 c.JupyterHub.spawner_class = UserCreatingSpawner
+c.Spawner.notebook_dir = '/home/efs'
 
 # leave users running when the Hub restarts
 c.JupyterHub.cleanup_servers = False
